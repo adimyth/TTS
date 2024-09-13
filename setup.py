@@ -59,11 +59,6 @@ def pip_install(package_name):
 
 
 requirements = open(os.path.join(cwd, "requirements.txt"), "r").readlines()
-with open(os.path.join(cwd, "requirements.notebooks.txt"), "r") as f:
-    requirements_notebooks = f.readlines()
-with open(os.path.join(cwd, "requirements.dev.txt"), "r") as f:
-    requirements_dev = f.readlines()
-requirements_all = requirements_dev + requirements_notebooks
 
 with open("README.md", "r", encoding="utf-8") as readme_file:
     README = readme_file.read()
@@ -108,12 +103,7 @@ setup(
         # 'build_ext': build_ext
     },
     install_requires=requirements,
-    extras_require={
-        "all": requirements_all,
-        "dev": requirements_dev,
-        "notebooks": requirements_notebooks,
-    },
-    python_requires=">=3.7.0, <3.11",
+    python_requires=">=3.7.0, <=3.11",
     entry_points={"console_scripts": ["tts=TTS.bin.synthesize:main", "tts-server = TTS.server.server:main"]},
     classifiers=[
         "Programming Language :: Python",
@@ -122,6 +112,7 @@ setup(
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",
         "Intended Audience :: Developers",
