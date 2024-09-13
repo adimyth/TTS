@@ -13,6 +13,7 @@ pyyaml
 fsspec>=2021.04.0
 # deps for inference
 pysbd
+pyworld==0.3.4
 # coqui stack
 trainer
 # config management
