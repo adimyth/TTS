@@ -15,6 +15,7 @@ fsspec>=2021.04.0
 pysbd
 pyworld==0.3.4
 matplotlib
+pandas==1.4.0
 # coqui stack
 trainer
 # config management
